@@ -1,0 +1,138 @@
+{% extends 'core/base.html' %}
+{% load static %}
+
+{% block content %}
+
+<link rel="stylesheet" href="{% static 'css/about.css' %}">
+
+<!-- 🌿 HERO -->
+<section class="about-hero">
+
+  <div class="about-container">
+
+    <!-- IMAGE -->
+    <div class="about-image">
+      <img src="{% static 'images/image.png' %}">
+      <div class="exp-badge">4+ Years Exp.</div>
+    </div>
+
+    <!-- TEXT -->
+    <div class="about-text">
+      <p class="tag">The Visionary</p>
+
+      <h1>
+        Monali <br>
+        <span>Jain.</span>
+      </h1>
+
+      <p class="desc">
+        Founder & Lead Artist at Madhu's Mehendi Studio.
+        Transforming traditions into timeless art for over a decade.
+      </p>
+
+      <div class="about-info">
+        <span>📍 Jamner, Jalgaon</span>
+        <span></span>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- 🌿 STATS -->
+<section class="stats-section">
+
+  <div class="stats-grid">
+
+    <div>
+      <h2>150+</h2>
+      <p>Happy Brides</p>
+    </div>
+
+    <div>
+      <h2>4</h2>
+      <p>Awards Won</p>
+    </div>
+
+    <div>
+      <h2>180+</h2>
+      <p>Events Done</p>
+    </div>
+
+    <div>
+      <h2>500</h2>
+      <p>Followers</p>
+    </div>
+
+  </div>
+
+</section>
+
+<!-- 🌿 JOURNEY -->
+<section class="journey">
+
+  <div class="journey-container">
+
+    <!-- LEFT -->
+    <div class="journey-text">
+
+      <h2>
+        The Artist's <br>
+        <span>Journey.</span>
+      </h2>
+
+      <p>
+        Mehendi has always been more than just a tradition for me; 
+        it's a form of expression. I started my journey as a young enthusiast,
+        fascinated by intricate patterns.
+      </p>
+
+      <p>
+        Over the years, I’ve honed my skills blending traditional Indian motifs 
+        with modern Arabic styles.
+      </p>
+
+      <p>
+        At Madhu's Mehendi Studio, we use only 100% natural henna 
+        to ensure safe and rich color.
+      </p>
+
+      <a href="#" class="btn-primary">Follow The Journey</a>
+
+    </div>
+
+    <!-- RIGHT -->
+    <div class="journey-images">
+      <img src="{% static 'images/about1.jpg' %}">
+      <img src="{% static 'images/about2.jpg' %}">
+    </div>
+
+  </div>
+
+</section>
+
+<!-- 🌿 COMMUNITY -->
+<section class="community">
+
+  <p class="tag">Connect</p>
+
+  <h2>
+    Join the <span>Community.</span>
+  </h2>
+
+  <p class="desc">
+    Follow us for updates, new designs, and behind-the-scenes content.
+  </p>
+
+  <div class="social-links">
+    <a href="#"><span>📷 Instagram</span></a>
+    <a href="#"><span>📘 Facebook</span></a>
+    <a href="#"><span>✉️ Email</span></a>
+    <a href="#"><span>📞 WhatsApp</span></a>
+  </div>
+
+</section>
+
+{% endblock %}

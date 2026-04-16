@@ -1,0 +1,84 @@
+{% extends 'core/base.html' %}
+{% load static %}
+
+{% block content %}
+
+<link rel="stylesheet" href="{% static 'css/booking.css' %}">
+
+<div class="booking-page">
+
+  <!-- LEFT -->
+  <div class="booking-left">
+    <p class="tag">Reservation</p>
+
+    <h1>
+      Book Your <br>
+      <span>Session.</span>
+    </h1>
+
+    <p class="desc">
+      Fill out the form to inquire about availability and pricing.
+    </p>
+
+    <div class="contact-box">
+      <p><strong>Call Us</strong></p>
+      <p>+91 98765 43210</p>
+    </div>
+
+    <div class="contact-box">
+      <p><strong>Availability</strong></p>
+      <p>Mon - Sun, 9am - 8pm</p>
+    </div>
+  </div>
+
+  <!-- RIGHT FORM -->
+  <div class="booking-form">
+
+    <form method="POST">
+      {% csrf_token %}
+
+      <div class="form-grid">
+
+        <div>
+          <label>Full Name</label>
+          <input type="text" name="name" placeholder="Your Name" required>
+        </div>
+
+        <div>
+          <label>Phone Number</label>
+          <input type="text" name="phone" placeholder="10-digit number" required>
+        </div>
+
+        <div>
+          <label>Event Date</label>
+          <input type="date" name="date" required>
+        </div>
+
+        <div>
+          <label>Event Type</label>
+          <select name="event_type">
+            <option>Wedding</option>
+            <option>Engagement</option>
+            <option>Festival</option>
+            <option>Other</option>
+          </select>
+        </div>
+
+      </div>
+
+      <div class="full-width">
+        <label>Additional Details</label>
+        <textarea name="message" placeholder="Tell us more..."></textarea>
+      </div>
+
+      <button class="submit-btn">Send Inquiry</button>
+
+    </form>
+
+  </div>
+{% if request.GET.success %}
+  <p style="color:green;">Booking submitted successfully!</p>
+{% endif %}
+</div>
+
+{% endblock %}

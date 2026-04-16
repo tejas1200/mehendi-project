@@ -1,0 +1,58 @@
+{% extends 'core/admin/base_admin.html' %}
+{% load static %}
+
+{% block content %}
+
+<link rel="stylesheet" href="{% static 'css/dashboard.css' %}">
+
+<div class="dashboard-container">
+
+  <!-- HEADER -->
+  <div class="dashboard-header">
+    <h3>Manage Categories</h3>
+    <p>Add and manage mehendi design categories</p>
+  </div>
+
+  <!-- ADD CATEGORY -->
+  <div class="card form-card">
+
+    <form method="POST">
+      {% csrf_token %}
+
+      <label class="form-label">Category Name</label>
+      <input type="text" name="name" class="form-input" placeholder="Enter category name">
+
+      <button class="btn-primary mt-2">Add Category</button>
+
+    </form>
+
+  </div>
+
+  <!-- CATEGORY LIST -->
+  <div class="card mt-3">
+
+    <h4 class="mb-3">All Categories</h4>
+
+    <div class="category-list">
+
+      {% for cat in categories %}
+      <div class="category-item">
+
+        <span>{{ cat.name }}</span>
+
+        <a href="/admin/delete-category/{{ cat.id }}/"
+           class="delete"
+           onclick="return confirm('Delete this category?')">
+           Delete
+        </a>
+
+      </div>
+      {% endfor %}
+
+    </div>
+
+  </div>
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,90 @@
+{% extends 'core/admin/base_admin.html' %}
+
+{% load static %}
+
+{% block content %}
+
+<link rel="stylesheet" href="{% static 'css/dashboard.css' %}">
+
+<div class="dashboard-container">
+
+  <!-- HEADER -->
+  <div class="dashboard-header">
+    <h3>Upload Mehendi Design</h3>
+  </div>
+
+  <!-- FORM -->
+  <div class="card form-card">
+
+    <form method="POST" enctype="multipart/form-data">
+      {% csrf_token %}
+
+      <!-- Image Input -->
+      <label class="form-label">Select Image</label>
+      <input type="file" name="image" id="imageInput" class="form-input">
+
+      <!-- Preview -->
+      <img id="preview" class="preview-img">
+
+      <!-- Category -->
+      <label class="form-label mt-3">Category</label>
+      <select name="category" class="form-input">
+        {% for cat in categories %}
+          <option value="{{ cat.id }}">{{ cat.name }}</option>
+        {% endfor %}
+      </select>
+
+      <button class="btn-primary mt-3">Upload</button>
+
+    </form>
+
+  </div>
+
+  <!-- IMAGE GRID HEADER -->
+  <div class="d-flex justify-content-between align-items-center mt-4 mb-2">
+    <h4>All Designs</h4>
+    <a href="/admin/add-image/" class="btn-primary">+ Add Image</a>
+  </div>
+
+  <!-- IMAGES -->
+  <div class="image-grid">
+
+    {% for img in images %}
+    <div class="image-card">
+
+      <img src="{{ img.image.url }}">
+
+      <div class="image-info">
+        <small>{{ img.category.name }}</small>
+
+        <div class="image-actions">
+          <a href="/admin/edit-image/{{ img.id }}/">Edit</a>
+
+          <a href="/admin/delete-image/{{ img.id }}/"
+             class="delete"
+             onclick="return confirm('Delete this image?')">
+             Delete
+          </a>
+        </div>
+      </div>
+
+    </div>
+    {% endfor %}
+
+  </div>
+
+</div>
+
+<!-- PREVIEW SCRIPT -->
+<script>
+document.getElementById("imageInput").onchange = function (e) {
+  const file = e.target.files[0];
+  if (file) {
+    const preview = document.getElementById("preview");
+    preview.src = URL.createObjectURL(file);
+    preview.style.display = "block";
+  }
+};
+</script>
+
+{% endblock %}

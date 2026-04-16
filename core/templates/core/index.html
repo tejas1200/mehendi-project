@@ -1,0 +1,67 @@
+{% extends 'core/base.html' %}
+{% load static %}
+
+{% block content %}
+
+<link rel="stylesheet" href="{% static 'css/index.css' %}">
+
+
+
+<!-- 🌿 HERO SECTION -->
+<section class="hero">
+
+  <!-- LEFT -->
+  <div class="hero-left">
+    <p class="tag">Premium Henna Artist</p>
+
+    <h1>
+      Artistry in <br>
+      <span>Every Detail.</span>
+    </h1>
+
+    <p class="desc">
+      Crafting exquisite mehendi designs for weddings, festivals,
+      and celebrations with modern elegance.
+    </p>
+
+    <div class="hero-buttons">
+      <a href="/booking/" class="btn-primary">Book Appointment</a>
+      <a href="/gallery/" class="btn-outline">View Catalogue</a>
+    </div>
+
+    <div class="stats">
+      <div><h3>150+</h3><p>Happy Clients</p></div>
+      <div><h3>4+</h3><p>Years Exp</p></div>
+      <div><h3>4.9</h3><p>Rating</p></div>
+    </div>
+  </div>
+
+  <!-- RIGHT -->
+  <div class="hero-right">
+    {% for img in images|slice:":4" %}
+      <div class="hero-img">
+        <img src="{{ img.image.url }}">
+      </div>
+    {% endfor %}
+  </div>
+
+</section>
+
+<!-- 🌿 FEATURED -->
+<section class="featured">
+
+  <h2>Featured Designs</h2>
+
+  <div class="featured-grid">
+    {% for img in images|slice:":6" %}
+      <div class="featured-card">
+        <img src="{{ img.image.url }}">
+      </div>
+    {% endfor %}
+  </div>
+
+</section>
+
+
+
+{% endblock %}

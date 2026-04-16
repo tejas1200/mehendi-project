@@ -1,0 +1,117 @@
+/* 🌿 HERO */
+.about-hero {
+  background: #1F4F3A;
+  color: #fff;
+  padding: 60px 40px;
+}
+
+.about-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+}
+
+.about-image img {
+  width: 80%;
+  border: 3px solid #2e6b50;
+}
+
+.exp-badge {
+  background: #C5C16E;
+  padding: 8px 15px;
+  display: inline-block;
+  margin-top: 10px;
+}
+
+/* TEXT */
+.about-text h1 {
+  font-size: 64px;
+}
+
+.about-text span {
+  color: #C5C16E;
+}
+
+.desc {
+  margin: 20px 0;
+  color: #ddd;
+}
+
+/* STATS */
+.stats-section {
+  background: #eee;
+  padding: 40px;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  text-align: center;
+}
+
+/* JOURNEY */
+.journey {
+  background: #F5F3E7;
+  padding: 60px;
+}
+
+.journey-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+}
+
+.journey-text h2 {
+  font-size: 50px;
+  color: #1F4F3A;
+}
+
+.journey-text span {
+  color: #C5C16E;
+}
+
+.journey-images img {
+  width: 40%;
+  margin-bottom: 20px;
+}
+
+/* COMMUNITY */
+.community {
+  background: #1F4F3A;
+  color: #fff;
+  text-align: center;
+  padding: 60px;
+}
+
+.community span {
+  color: #C5C16E;
+}
+
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin-top: 20px;
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+
+  .about-container,
+  .journey-container {
+    grid-template-columns: 1fr;
+  }
+
+  .about-text h1 {
+    font-size: 36px;
+  }
+
+  .stats-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .social-links {
+    flex-direction: column;
+    text-decoration: none; 
+  }
+}

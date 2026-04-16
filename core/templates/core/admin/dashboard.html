@@ -1,0 +1,99 @@
+{% extends 'core/admin/base_admin.html' %}
+
+{% load static %}
+
+{% block content %}
+
+<link rel="stylesheet" href="{% static 'css/dashboard.css' %}">
+
+<div class="dashboard-container">
+
+  <!-- HEADER -->
+  <div class="dashboard-header">
+    <div>
+      <h2>Dashboard Overview</h2>
+      <p>Welcome back! Here's what's happening.</p>
+    </div>
+  </div>
+
+  <!-- STATS -->
+  <div class="stats-grid">
+
+    <div class="stat-card">
+      <h3>{{ total_images }}</h3>
+      <p>Total Designs</p>
+    </div>
+
+    <div class="stat-card">
+      <h3>{{ total_bookings }}</h3>
+      <p>Total Bookings</p>
+    </div>
+
+    <div class="stat-card">
+      <h3>{{ total_categories }}</h3>
+      <p>Categories</p>
+    </div>
+
+  </div>
+
+  <!-- ACTION BUTTONS -->
+  <div class="actions">
+    <a href="/admin/add-image/" class="btn-primary">+ Add Image</a>
+    <a href="/admin/categories/" class="btn-outline">Categories</a>
+    <a href="/admin/bookings/" class="btn-outline">Bookings</a>
+    <a href="/gallery/" class="btn-outline">View Gallery</a>
+  </div>
+
+  <!-- MAIN GRID -->
+  <div class="dashboard-grid">
+
+    <!-- BOOKINGS -->
+    <div class="card">
+      <h4>Recent Bookings</h4>
+      <table>
+        <tr>
+          <th>Name</th>
+          <th>Date</th>
+          <th>Status</th>
+        </tr>
+
+        {% for b in recent_bookings %}
+        <tr>
+          <td>{{ b.name }}</td>
+          <td>{{ b.date }}</td>
+          <td><span class="status">{{ b.status }}</span></td>
+        </tr>
+        {% endfor %}
+      </table>
+    </div>
+
+    <!-- IMAGES -->
+    <div class="card">
+      <h4>Recent Designs</h4>
+
+      <div class="image-grid">
+        {% for img in images %}
+        <div class="image-card">
+
+          <img src="{{ img.image.url }}">
+
+          <div class="image-info">
+            <small>{{ img.category.name }}</small>
+
+            <div class="image-actions">
+              <a href="/admin/edit-image/{{ img.id }}/">Edit</a>
+              <a href="/admin/delete-image/{{ img.id }}/" class="delete">Delete</a>
+            </div>
+          </div>
+
+        </div>
+        {% endfor %}
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+
+{% endblock %}

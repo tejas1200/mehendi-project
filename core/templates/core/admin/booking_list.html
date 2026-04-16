@@ -1,0 +1,56 @@
+{% extends 'core/admin/base_admin.html' %}
+
+{% load static %}
+
+{% block content %}
+
+<link rel="stylesheet" href="{% static 'css/dashboard.css' %}">
+
+<div class="dashboard-container">
+
+  <!-- HEADER -->
+  <div class="dashboard-header d-flex justify-content-between align-items-center">
+    <div>
+      <h3>Bookings</h3>
+      <p>Manage all customer bookings</p>
+    </div>
+  </div>
+
+  <!-- TABLE CARD -->
+  <div class="card">
+
+    <div class="table-responsive">
+
+      <table class="custom-table">
+
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Phone</th>
+            <th>Date</th>
+            <th>Event</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          {% for b in bookings %}
+          <tr>
+            <td data-label="Name">{{ b.name }}</td>
+            <td data-label="Phone">{{ b.phone }}</td>
+            <td data-label="Date">{{ b.date }}</td>
+            <td data-label="Event">
+              <span class="badge-event">{{ b.event_type }}</span>
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+
+      </table>
+
+    </div>
+
+  </div>
+
+</div>
+
+{% endblock %}
